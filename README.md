@@ -17,6 +17,7 @@ The repository is mainly for my own version-control.
 ## ToDo
 
 - Continue to learn ES6.
+- Import the API from the "01-Express"-project.
 
 ##History
 
