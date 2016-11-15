@@ -4,7 +4,7 @@ Trying to build a SPA-application using MongoDB, Express.js, Node.js and
 ES6. 
 A live example can be found at [kingsislet.com](http://www.kingsislet.com).
 
-The repository is mainly for my own version-control.
+The repository is for my own version-control.
 
 ## Requirements
 
