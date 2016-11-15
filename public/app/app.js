@@ -2,6 +2,7 @@
  * Created by anderslutz on 2016-11-15.
  */
 import {keyValue} from "./modules/external.js";
+import {moduleStr} from "./modules/external.js";
 
 console.log(keyValue);
 
@@ -15,9 +16,9 @@ let staticintro = `
         and don't need to earn any more money so productivity isn't important at all :-)
     </p>
     <p>
-        I only test things in Google Chrome Version 54.0.2840.71 (64-bit) and
-        node.js v6.7.0. Server-version of node is v4.4.5 so for the time being I will
-        use my "old" ES5-server.
+        I test things in Google Chrome Version 54.0.2840.71 (64-bit) and
+        node.js v6.7.0 locally. Server-version of node is v4.4.5 so for the time being I'm
+        using my "old" ES5-server online.
     </p>
     <p><a href="https://github.com/airman59/DIY" target="_blank">Project on GitHub</a>.</p>    
 `;
@@ -28,6 +29,8 @@ let str = `
     to full implementation of ES6 in modern browsers.</p>
     <i>/Luz</i>
 `;
+
+str += moduleStr;
 
 document.getElementById("staticintro").innerHTML = staticintro;
 document.getElementById("content").innerHTML = str;
