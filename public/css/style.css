@@ -1,0 +1,32 @@
+.red {
+    color: red;
+}
+
+h1 {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+h3 {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#staticintro {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+
+#content {
+    width: 80%;
+    min-height: 400px;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
