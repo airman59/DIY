@@ -16,7 +16,8 @@ let staticintro = `
     </p>
     <p>
         I only test things in Google Chrome Version 54.0.2840.71 (64-bit) and
-        node.js v6.7.0.
+        node.js v6.7.0. Server-version of node is v4.4.5 so for the time being I will
+        use my "old" ES5-server.
     </p>
     <p><a href="https://github.com/airman59/DIY" target="_blank">Project on GitHub</a>.</p>    
 `;
