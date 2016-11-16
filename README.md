@@ -17,9 +17,13 @@ The repository is for my own version-control.
 ## ToDo
 
 - Continue to learn ES6.
-- Import the API from the "01-Express"-project.
+- ~~Import the API from the "01-Express"-project.~~
 
 ##History
+
+####2016-11-16, 16:55  
+
+- Fetching the content from the DB with AJAX.
 
 ####2016-11-15, 14:55  
 
