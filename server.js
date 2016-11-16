@@ -43,15 +43,15 @@ app.use(express.static(__dirname + '/public'));
  * API-routes
  *********************************************************************************/
 // Public routes to view the pages
-//var contentRoutes = require('./app/routes/content')(app, express);
-//app.use('/content', contentRoutes);
-//var diaryRoutes = require('./app/routes/diary')(app, express);
-//app.use('/diary', diaryRoutes);
+var contentRoutes = require('./app/routes/content')(app, express);
+app.use('/content', contentRoutes);
+var diaryRoutes = require('./app/routes/diary')(app, express);
+app.use('/diary', diaryRoutes);
 
 // Protected routes to administrate the site
 //I have to implement authentication before I can show these
-//var adminRoutes = require('./app/routes/admin')(app, express);
-//app.use('/admin', adminRoutes);
+var adminRoutes = require('./app/routes/admin')(app, express);
+app.use('/admin', adminRoutes);
 
 // MAIN CATCHALL ROUTE ---------------
 // SEND USERS TO FRONTEND ------------

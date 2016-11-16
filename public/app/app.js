@@ -1,36 +1,51 @@
 /**
  * Created by anderslutz on 2016-11-15.
  */
-import {keyValue} from "./modules/external.js";
-import {moduleStr} from "./modules/external.js";
+//import {navbar} from "./views/navbar.js";
 
-console.log(keyValue);
+//document.getElementById("navbar").innerHTML = navbar;
+document.getElementById("content").innerHTML = function() { makeRequest('content/home'); };
 
-let staticintro = `
-    <p>
-        This is my experiment-site while trying to create a SPA using Node.js,
-        Express.js, MongoDB and ES6. No frameworks, JQuery or Bootstrap ;-)</p>
-    <p>
-        It's just a hobby-project for my own learning.
-        I will retire in a few month
-        and don't need to earn any more money so productivity isn't important at all :-)
-    </p>
-    <p>
-        I test things in Google Chrome Version 54.0.2840.71 (64-bit) and
-        node.js v6.7.0 locally. Server-version of node is v4.4.5 so for the time being I'm
-        using my "old" ES5-server online.
-    </p>
-    <p><a href="https://github.com/airman59/DIY" target="_blank">Project on GitHub</a>.</p>    
-`;
 
-let str = `
-    <p>Finally I have my environment for ES6 and modules set up in the browser.</p>
-    <p>For the moment I'm forced to use Traceur and System.js but I'm looking forward
-    to full implementation of ES6 in modern browsers.</p>
-    <i>/Luz</i>
-`;
+(function() {
+    var httpRequest;
+    document.getElementById("home").onclick = function() { makeRequest('content/home'); };
+    document.getElementById("todo").onclick = function() { makeRequest('content/todo'); };
+    document.getElementById("history").onclick = function() { makeRequest('content/history'); };
+    document.getElementById("links").onclick = function() { makeRequest('content/links'); };
+    document.getElementById("about").onclick = function() { makeRequest('content/about'); };
+    makeRequest('content/home');
 
-str += moduleStr;
+    function makeRequest(url) {
+        httpRequest = new XMLHttpRequest();
 
-document.getElementById("staticintro").innerHTML = staticintro;
-document.getElementById("content").innerHTML = str;
+        if (!httpRequest) {
+            alert('Giving up :( Cannot create an XMLHTTP instance');
+            return false;
+        }
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open('GET', url);
+        httpRequest.send();
+    }
+
+    function alertContents() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                var response = JSON.parse(httpRequest.responseText);
+                //alert(response.message);
+                //alert(response.content);
+                document.getElementById("content").innerHTML = response.content;
+
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+})();
+
+
+
+
+
+
+

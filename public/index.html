@@ -7,11 +7,31 @@
 </head>
 <body>
 <h1>www.kingsislet.com</h1>
-<div id="staticintro"></div>
-<h3>Testarea for ES6:</h3>
+<hr>
+<div id="navbar">
+
+    <div id="navbuttons">
+        <button id="home">Home</button>
+        <button id="todo">ToDo</button>
+        <button id="history">History</button>
+        <button id="links">Links</button>
+        <button id="about">About</button>
+    </div>
+
+</div>
+
 <div id="content"></div>
+
 <script src="js/traceur.js"></script>
 <script src="js/BrowserSystem.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<!-- CDN-versions for production
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+-->
+
 <script src="js/system.js"></script>
 <script>
     SystemJS.config({

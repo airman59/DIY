@@ -30,3 +30,16 @@ h3 {
     border-radius: 10px;
     padding: 10px;
 }
+
+#navbar {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+#navbar button {
+    width: 80px;
+    height:30px;
+    /*color: red;*/
+    /*background-color: black;*/
+}
