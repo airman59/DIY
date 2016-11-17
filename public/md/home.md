@@ -20,4 +20,4 @@ It's then fecthed by the client with AJAX.
 
 */Luz*
 
-**updated: 2016-11-16 13:22**
+**Site or content updated at 2016-11-17 12:15**

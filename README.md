@@ -21,6 +21,10 @@ The repository is for my own version-control.
 
 ##History
 
+####2016-11-17, 12:15 
+
+- Refactored the navbar into a class.
+
 ####2016-11-17, 09:45 
 
 - Moved AJAX-functions and navbar to separate modules/files.
