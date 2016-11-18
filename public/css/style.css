@@ -53,6 +53,13 @@ h3 {
     /*background-color: black;*/
 }
 
+#navbar button.active {
+    width: 80px;
+    height:30px;
+    color: white;
+    background-color: darkgrey;
+}
+
 body {
     overflow-y: scroll; /* Add vertical scrollbar */
 }
