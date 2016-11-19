@@ -18,30 +18,17 @@ class Navbar {
         this.active = "home";
     }
     addListeners() {
-        document.getElementById("home").onclick = () => {
-            makeRequest('content/home');
-            this.highLight("home");
-        };
-        document.getElementById("notes").onclick = () => {
-            makeRequest('content/notes');
-            this.highLight("notes");
-        };
-        document.getElementById("todo").onclick = () => {
-            makeRequest('content/todo');
-            this.highLight("todo");
-        };
-        document.getElementById("history").onclick = () => {
-            makeRequest('content/history');
-            this.highLight("history");
-        };
-        document.getElementById("links").onclick = () => {
-            makeRequest('content/links');
-            this.highLight("links");
-        };
-        document.getElementById("about").onclick = () => {
-            makeRequest('content/about');
-            this.highLight("about");
-        };
+        document.getElementById("home").onclick = () => {this.getPage('home');};
+        document.getElementById("notes").onclick = () => {this.getPage('notes');};
+        document.getElementById("todo").onclick = () => {this.getPage('todo');};
+        document.getElementById("history").onclick = () => {this.getPage('history');};
+        document.getElementById("links").onclick = () => {this.getPage('links');};
+        document.getElementById("about").onclick = () => {this.getPage('about');};
+    }
+
+    getPage(page) {
+        makeRequest('content/' + page);
+        this.highLight(page);
     }
 
     showStartPage() {

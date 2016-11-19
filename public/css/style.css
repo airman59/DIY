@@ -49,8 +49,8 @@ h3 {
 #navbar button {
     width: 80px;
     height:30px;
-    /*color: red;*/
-    /*background-color: black;*/
+    color: black;
+    background-color: lightgrey;
 }
 
 #navbar button.active {
