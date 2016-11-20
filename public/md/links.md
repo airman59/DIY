@@ -15,7 +15,7 @@
 
 *   [Javascript at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 *   [Speaking javascript online-book](http://speakingjs.com/es5/index.html)
-*   [Exploring ES6 online-book](http://exploringjs.com/es6/)
+*   [Exploring ES6 online-book](http://speakingjs.com/es5/index.html)
 
 #####Express.js
 
