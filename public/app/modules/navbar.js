@@ -1,7 +1,8 @@
 /**
  * Created by anderslutz on 2016-11-17.
  */
-import {makeRequest} from "./ajax.js";
+//import {makeRequest} from "./ajax.js";
+import Ajax from "./ajax.class.js";
 
 class Navbar {
     constructor() {
@@ -16,6 +17,8 @@ class Navbar {
             </div>
         `;
         this.active = "home";
+        this.ajax = new Ajax();
+        this.stateObj = {page: "/"};
     }
     addListeners() {
         document.getElementById("home").onclick = () => {this.getPage('home');};
@@ -27,12 +30,12 @@ class Navbar {
     }
 
     getPage(page) {
-        makeRequest('content/' + page);
+        this.ajax.makeRequest('content/' + page);
         this.highLight(page);
     }
 
     showStartPage() {
-        makeRequest('content/home');
+        this.ajax.makeRequest('content/home');
         this.highLight("home");
     }
 
