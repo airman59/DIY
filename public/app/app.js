@@ -16,17 +16,13 @@ function getPage(page, addEntry) {
 }
 
 function highLight(id) {
-    for (let i = 0; i < document.links.length; i++) {
-        if (document.links[i].href == document.URL) {
-            document.links[i].className = 'active';
-        }
-        else {
-            document.links[i].className = '';
-        }
+    let elements = document.querySelectorAll("nav a.active");
+    if(elements[0]) {
+        elements[0].classList.remove('active');
     }
+    document.getElementById(id).classList.add("active");
     document.getElementById(id).blur();
 }
-
 
 function addListeners() {
     document.getElementById("home").onclick = () => getPage('home', true);
@@ -80,4 +76,3 @@ function runApplication() {
 let stateObj = {};
 ready(runApplication);
 
-console.log("Hejsan");
