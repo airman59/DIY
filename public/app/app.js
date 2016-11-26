@@ -46,18 +46,14 @@ function setHistory(page) {
 }
 
 function setGetPage(addEntry) {
-    let record;
     if (window.location.pathname === "/") {
         var page = "home";
         var id = "#home";
-        record = "/";
     } else {
         var page = window.location.pathname.substr(1);
         var id = "#" + window.location.pathname.substr(1);
-        record = window.location.pathname.substr(1);
     }
     getPage(page, addEntry);
-    return record;
 }
 
 // Change page after a click on back or forward.
@@ -65,14 +61,23 @@ window.onpopstate = function () {
     setGetPage(false);
 };
 
-// Add navbar and listeners.
-document.getElementById("testnav").innerHTML = navhtml;
-addListeners();
 
+function ready(fn) {
+    if(document.readyState != 'loading') {
+        fn();
+    } else {
+        document.addEventListener('DOMContentloaded', fn);
+    }
+}
 
-// Initial routing to enable bookmarking of a specific page on the site...
+function runApplication() {
+    document.getElementById("testnav").innerHTML = navhtml;
+    addListeners();
 
+    // Initial routing to enable bookmarking of a specific page on the site...
+    setGetPage(true);
+}
 let stateObj = {};
-let record = setGetPage();
-setHistory(record);
+ready(runApplication);
 
+console.log("Hejsan");
