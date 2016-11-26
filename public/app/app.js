@@ -6,38 +6,35 @@ import {makeRequest} from "./modules/ajax.js";
 import {navhtml} from "./modules/testnav.js";
 
 
-// Set up the nabar.
-//let navbar = new Navbar();
-//document.getElementById("navbar").innerHTML = navbar.html;
-//navbar.addListeners();
-
-// Show default start-page
-//navbar.showStartPage();
-
-// New test-code.
-
-
-function getPage(page) {
+function getPage(page, addEntry) {
     event.preventDefault();
     makeRequest('content/' + page);
+    if (addEntry == true) {
+        setHistory(page);
+    }
     highLight(page);
-    setHistory(page);
 }
 
 function highLight(id) {
-    document.getElementById(active).classList.remove('active');
-    document.getElementById(id).classList.add('active');
+    for (let i = 0; i < document.links.length; i++) {
+        if (document.links[i].href == document.URL) {
+            document.links[i].className = 'active';
+        }
+        else {
+            document.links[i].className = '';
+        }
+    }
     document.getElementById(id).blur();
-    active = id;
 }
 
+
 function addListeners() {
-    document.getElementById("home").onclick = () => getPage('home');
-    document.getElementById("notes").onclick = () => getPage('notes');
-    document.getElementById("todo").onclick = () => getPage('todo');
-    document.getElementById("history").onclick = () => getPage('history');
-    document.getElementById("links").onclick = () => getPage('links');
-    document.getElementById("about").onclick = () => getPage('about');
+    document.getElementById("home").onclick = () => getPage('home', true);
+    document.getElementById("notes").onclick = () => getPage('notes', true);
+    document.getElementById("todo").onclick = () => getPage('todo', true);
+    document.getElementById("history").onclick = () => getPage('history', true);
+    document.getElementById("links").onclick = () => getPage('links', true);
+    document.getElementById("about").onclick = () => getPage('about', true);
 }
 
 function setHistory(page) {
@@ -45,11 +42,10 @@ function setHistory(page) {
         page = "/";
     }
     stateObj.page = page;
-    console.log("stateObj.page: " + stateObj.page);
     history.pushState(stateObj, page, page);
 }
 
-function setGetPage() {
+function setGetPage(addEntry) {
     let record;
     if (window.location.pathname === "/") {
         var page = "home";
@@ -60,30 +56,23 @@ function setGetPage() {
         var id = "#" + window.location.pathname.substr(1);
         record = window.location.pathname.substr(1);
     }
-    getPage(page);
+    getPage(page, addEntry);
     return record;
 }
 
 // Change page after a click on back or forward.
-window.onpopstate = function (event) {
-    setGetPage();
+window.onpopstate = function () {
+    setGetPage(false);
 };
 
 // Add navbar and listeners.
 document.getElementById("testnav").innerHTML = navhtml;
 addListeners();
 
-// Show startpage.
-let active = "home";
-let stateObj = {page: "/"};
-
-makeRequest('content/home');
-highLight("home");
-setHistory("home");
 
 // Initial routing to enable bookmarking of a specific page on the site...
-/*console.log(window.location.pathname);
+
+let stateObj = {};
 let record = setGetPage();
-let active = record;
-console.log("active: " + active);
-setHistory(record);*/
+setHistory(record);
+
