@@ -10,8 +10,8 @@ The site is hosted on a node.js-droplet at [DigitalOcean](href="https://www.digi
 that solution. Presently I have my own installation of a mongoDB there. It's easy to log in with SSH and manage both
 the server and the database.
 
-I test things in Google Chrome Version 54.0.2840.71 (64-bit) and node.js v6.7.0 locally.
-Server-version of node is v4.4.5 so for the time being I'm using my "old" ES5-server online.
+I test things in Google Chrome Version 54.0.2840.71 (64-bit), Safari Version 10.0.1 (12602.2.14.0.7)
+and node.js v6.7.0 locally. Server-version of node is v4.4.5 so for the time being I'm using my "old" ES5-server online.
 
 The content is fetched from the DB as markdown and converted to html on the server with
 [showdown](https://www.npmjs.com/package/showdown). It's then fecthed by the client with AJAX.

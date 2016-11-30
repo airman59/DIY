@@ -1,5 +1,6 @@
 ##History
 
+*   20161130, 09:26: Skipping system.js and ES6-modules.
 *   20161126, 13:45: Simple routing and highlighting in navbar.
 *   20161117, 09:35: Moved AJAX-functions and navbar to separate files/modules.
 *   20161116, 16:05: Quick test fetching content from DB with AJAX.

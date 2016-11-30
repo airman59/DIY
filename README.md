@@ -11,8 +11,6 @@ The repository is for my own version-control.
 * node (v6.7.0)
 * npm (v3.10.3)
 * mongodb (v3.2.7)
-* System.js
-* Traceur
 
 ## ToDo
 
@@ -20,6 +18,10 @@ The repository is for my own version-control.
 - ~~Import the API from the "01-Express"-project.~~
 
 ##History
+
+####2016-11-30, 09:42 
+
+- Skipping system.js and ES6-modules.
 
 ####2016-11-17, 12:15 
 

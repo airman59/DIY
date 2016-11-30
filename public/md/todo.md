@@ -1,6 +1,6 @@
 ##ToDo
 
-*   Learn more ES6.
+*   Learn more ES5/ES6.
 *   And loads of other things like...
 *   Routing.
 *   <strike>Navbar-highlighting.</strike>
