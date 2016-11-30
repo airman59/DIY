@@ -2,6 +2,8 @@
  * Created by anderslutz on 2016-11-22.
  */
 
+
+
 let navhtml = `
     <nav>
         <ul id="navbar">
@@ -14,5 +16,6 @@ let navhtml = `
         </ul>
     </nav>
 `;
+console.log("Testnav loaded!");
 
-export {navhtml};
+//export {navhtml};

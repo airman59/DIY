@@ -1,14 +1,12 @@
 /**
  * Created by anderslutz on 2016-11-15.
  */
-//import Navbar from "./modules/navbar.js";
-import {makeRequest} from "./modules/ajax.js";
-import {navhtml} from "./modules/testnav.js";
-
 
 function getPage(page, addEntry) {
-    event.preventDefault();
-    makeRequest('content/' + page);
+    if(event) {
+        event.preventDefault();
+    }
+    ajax.makeRequest('content/' + page);
     if (addEntry == true) {
         setHistory(page);
     }
@@ -22,15 +20,6 @@ function highLight(id) {
     }
     document.getElementById(id).classList.add("active");
     document.getElementById(id).blur();
-}
-
-function addListeners() {
-    document.getElementById("home").onclick = () => getPage('home', true);
-    document.getElementById("notes").onclick = () => getPage('notes', true);
-    document.getElementById("todo").onclick = () => getPage('todo', true);
-    document.getElementById("history").onclick = () => getPage('history', true);
-    document.getElementById("links").onclick = () => getPage('links', true);
-    document.getElementById("about").onclick = () => getPage('about', true);
 }
 
 function setHistory(page) {
@@ -58,21 +47,10 @@ window.onpopstate = function () {
 };
 
 
-function ready(fn) {
-    if(document.readyState != 'loading') {
-        fn();
-    } else {
-        document.addEventListener('DOMContentloaded', fn);
-    }
-}
-
-function runApplication() {
-    document.getElementById("testnav").innerHTML = navhtml;
-    addListeners();
-
-    // Initial routing to enable bookmarking of a specific page on the site...
-    setGetPage(true);
-}
 let stateObj = {};
-ready(runApplication);
 
+nav.addNavbar("navbar");
+nav.addListeners();
+
+// Initial routing to enable bookmarking of a specific page on the site...
+setGetPage(true);
