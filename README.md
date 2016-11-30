@@ -15,10 +15,14 @@ The repository is for my own version-control.
 ## ToDo
 
 - Routing.
-- Continue to learn ES5/ES6.
-- ~~Import the API from the "01-Express"-project.~~
 
 ##History
+
+####2016-11-30, 17:15
+
+- After reading up a bit on ES5-modules and namespaces I have implemented a
+  new version of of the site. Now it's a single global object and modules in
+  separate files that adds public functions to the global.
 
 ####2016-11-30, 09:42 
 

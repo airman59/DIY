@@ -1,7 +1,7 @@
 ##Wellcome
 
 This is my experiment-site while trying to create a SPA using Node.js,
-Express.js, MongoDB and ES6. No frameworks, JQuery or Bootstrap ;-)
+Express.js, MongoDB and ES5/ES6. No frameworks, JQuery or Bootstrap ;-)
 
 It's just a hobby-project for my own learning. I will retire in a few month
 and don't need to earn any more money so productivity isn't important at all :-)

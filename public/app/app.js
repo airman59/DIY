@@ -1,56 +1,26 @@
 /**
- * Created by anderslutz on 2016-11-15.
+ * Created by anderslutz on 2016-11-30.
  */
 
-function getPage(page, addEntry) {
-    if(event) {
-        event.preventDefault();
-    }
-    ajax.makeRequest('content/' + page);
-    if (addEntry == true) {
-        setHistory(page);
-    }
-    highLight(page);
-}
+// Wait until the DOM is loaded before starting the app.
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded - Starting the app!");
 
-function highLight(id) {
-    let elements = document.querySelectorAll("nav a.active");
-    if(elements[0]) {
-        elements[0].classList.remove('active');
-    }
-    document.getElementById(id).classList.add("active");
-    document.getElementById(id).blur();
-}
+    // Just to get shorter function-calls.
+    const ajax = luz.ajax;
+    const nav = luz.navbar;
+    const router = luz.router;
 
-function setHistory(page) {
-    if (page === "home") {
-        page = "/";
-    }
-    stateObj.page = page;
-    history.pushState(stateObj, page, page);
-}
+    // Add the navbar.
+    nav.addNavbar("navbar");
+    nav.addListeners(router.getPage);
 
-function setGetPage(addEntry) {
-    if (window.location.pathname === "/") {
-        var page = "home";
-        var id = "#home";
-    } else {
-        var page = window.location.pathname.substr(1);
-        var id = "#" + window.location.pathname.substr(1);
-    }
-    getPage(page, addEntry);
-}
+    // Change page after a click on back or forward.
+    window.onpopstate = function () {
+        router.setGetPage(false);
+    };
 
-// Change page after a click on back or forward.
-window.onpopstate = function () {
-    setGetPage(false);
-};
+    // Initial routing...
+    router.setGetPage(false);
 
-
-let stateObj = {};
-
-nav.addNavbar("navbar");
-nav.addListeners();
-
-// Initial routing to enable bookmarking of a specific page on the site...
-setGetPage(true);
+}, false);

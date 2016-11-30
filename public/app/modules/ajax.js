@@ -1,9 +1,10 @@
 /**
- * Created by anderslutz on 2016-11-16.
+ * Created by anderslutz on 2016-11-30.
  */
 
-let ajax = (function() {
+luz.ajax ={};
 
+(function() {
     let httpRequest;
 
     function makeRequest(url) {
@@ -29,10 +30,6 @@ let ajax = (function() {
         }
     }
 
-    return {
-        makeRequest: makeRequest
-    };
+    // Add to public API.
+    luz.ajax.makeRequest = makeRequest;
 }());
-
-
-// export {makeRequest};

@@ -1,50 +1,35 @@
 /**
- * Created by anderslutz on 2016-11-17.
+ * Created by anderslutz on 2016-11-30.
  */
-//import {makeRequest} from "./ajax.js";
-import Ajax from "./ajax.class.js";
 
-class Navbar {
-    constructor() {
-        this.html = `
-            <div id="navbuttons">
-                <button id="home">Home</button>
-                <button id="notes">Notes</button>
-                <button id="todo">Todo</button>
-                <button id="history">History</button>
-                <button id="links">Links</button>
-                <button id="about">About</button>
-            </div>
-        `;
-        this.active = "home";
-        this.ajax = new Ajax();
-        this.stateObj = {page: "/"};
-    }
-    addListeners() {
-        document.getElementById("home").onclick = () => {this.getPage('home');};
-        document.getElementById("notes").onclick = () => {this.getPage('notes');};
-        document.getElementById("todo").onclick = () => {this.getPage('todo');};
-        document.getElementById("history").onclick = () => {this.getPage('history');};
-        document.getElementById("links").onclick = () => {this.getPage('links');};
-        document.getElementById("about").onclick = () => {this.getPage('about');};
+luz.navbar ={};
+
+(function() {
+    let navhtml = `
+        <nav>
+            <ul id="navbar">
+              <li><a id="home" href="/">Home</a></li>
+              <li><a id="notes" href="/notes">Notes</a></li>
+              <li><a id="todo" href="/todo">ToDo</a></li>
+              <li><a id="history" href="/history">History</a></li>
+              <li><a id="links" href="/links">Links</a></li>
+              <li><a id="about" href="/about">About</a></li>
+            </ul>
+        </nav>
+    `;
+
+    function addNavbar(id) {
+        document.getElementById(id).innerHTML = navhtml;
     }
 
-    getPage(page) {
-        this.ajax.makeRequest('content/' + page);
-        this.highLight(page);
+    function addListeners(fn) {
+        document.getElementById("home").onclick = () => fn('home', true);
+        document.getElementById("notes").onclick = () => fn('notes', true);
+        document.getElementById("todo").onclick = () => fn('todo', true);
+        document.getElementById("history").onclick = () => fn('history', true);
+        document.getElementById("links").onclick = () => fn('links', true);
+        document.getElementById("about").onclick = () => fn('about', true);
     }
-
-    showStartPage() {
-        this.ajax.makeRequest('content/home');
-        this.highLight("home");
-    }
-
-    highLight(id){
-        document.getElementById(this.active).classList.remove('active');
-        document.getElementById(id).classList.add('active');
-        document.getElementById(id).blur();
-        this.active = id;
-    }
-}
-
-export default Navbar;
+    luz.navbar.addNavbar = addNavbar;
+    luz.navbar.addListeners = addListeners;
+}());
