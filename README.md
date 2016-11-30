@@ -1,7 +1,7 @@
 # DIY
 
 Trying to build a SPA-application using MongoDB, Express.js, Node.js and
-ES6. 
+ES5/ES6. 
 A live example can be found at [kingsislet.com](http://www.kingsislet.com).
 
 The repository is for my own version-control.
@@ -14,14 +14,16 @@ The repository is for my own version-control.
 
 ## ToDo
 
-- Continue to learn ES6.
+- Routing.
+- Continue to learn ES5/ES6.
 - ~~Import the API from the "01-Express"-project.~~
 
 ##History
 
 ####2016-11-30, 09:42 
 
-- Skipping system.js and ES6-modules.
+- Skipping system.js and ES6-modules. Basic approach using the ES6 that's
+implemented in todays browsers.
 
 ####2016-11-17, 12:15 
 
