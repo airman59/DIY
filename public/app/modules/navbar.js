@@ -5,6 +5,7 @@
 luz.navbar ={};
 
 (function() {
+    let helper = luz.helpers;
     let navhtml = `
         <nav>
             <ul id="navbar">
@@ -22,16 +23,14 @@ luz.navbar ={};
         document.getElementById(id).innerHTML = navhtml;
     }
 
-    function addListeners(fn) {
-        document.getElementById("home").onclick = () => fn('home', true);
-        document.getElementById("notes").onclick = () => fn('notes', true);
-        document.getElementById("todo").onclick = () => fn('todo', true);
-        document.getElementById("history").onclick = () => fn('history', true);
-        document.getElementById("links").onclick = () => fn('links', true);
-        document.getElementById("about").onclick = () => fn('about', true);
+    function addNavbarListeners(fn) {
+        let allLinks = document.querySelectorAll("#navbar a");
+        for(let i = 0; i < allLinks.length; i++) {
+            document.getElementById(allLinks[i].id).addEventListener("click", () => fn(allLinks[i].id, true), false);
+        }
     }
 
     // Add to public API.
     luz.navbar.addNavbar = addNavbar;
-    luz.navbar.addListeners = addListeners;
+    luz.navbar.addNavbarListeners = addNavbarListeners;
 }());

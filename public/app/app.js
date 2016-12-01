@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add the navbar.
     nav.addNavbar("navbar");
-    nav.addListeners(router.getPage);
-
-
+    nav.addNavbarListeners(router.getPage);
 
     // Initial routing...
     router.setGetPage(false);
@@ -24,9 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 // Test-code...
-let testStr = "/users/123456";
+/*let testStr = "/users/123456";
 testStr = testStr.substr(1);
 console.log(testStr);
 let strs = testStr.split("/");
 console.log(strs);
-console.log(strs.length);
+console.log(strs.length);*/
+
+
