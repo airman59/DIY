@@ -52,6 +52,7 @@ luz.router ={};
         setGetPage(false);
     };
 
+    // Add to public API.
     luz.router.setGetPage = setGetPage;
     luz.router.getPage = getPage;
 }());

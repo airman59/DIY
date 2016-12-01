@@ -4,6 +4,7 @@
 
 // Wait until the DOM is loaded before starting the app.
 document.addEventListener("DOMContentLoaded", function() {
+
     console.log("DOMContentLoaded - Starting the app!");
 
     // Just to get shorter function-calls.
@@ -15,12 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
     nav.addNavbar("navbar");
     nav.addListeners(router.getPage);
 
-    // Change page after a click on back or forward.
-    window.onpopstate = function () {
-        router.setGetPage(false);
-    };
+
 
     // Initial routing...
     router.setGetPage(false);
 
 }, false);
+
+// Test-code...
+let testStr = "/users/123456";
+testStr = testStr.substr(1);
+console.log(testStr);
+let strs = testStr.split("/");
+console.log(strs);
+console.log(strs.length);

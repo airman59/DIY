@@ -30,6 +30,8 @@ luz.navbar ={};
         document.getElementById("links").onclick = () => fn('links', true);
         document.getElementById("about").onclick = () => fn('about', true);
     }
+
+    // Add to public API.
     luz.navbar.addNavbar = addNavbar;
     luz.navbar.addListeners = addListeners;
 }());
