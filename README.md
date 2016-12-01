@@ -14,9 +14,15 @@ The repository is for my own version-control.
 
 ## ToDo
 
+- A more versatile Ajax-module.
+- Refactor the navbar-module.
 - Routing.
 
 ##History
+
+####2016-12-01, 08:34
+
+- Deleted unused directories/files.
 
 ####2016-11-30, 17:15
 
