@@ -15,7 +15,6 @@ The repository is for my own version-control.
 ## ToDo
 
 - A more versatile Ajax-module.
-- <srike>Refactor the navbar-module.</strike>
 - Routing.
 
 ##History
