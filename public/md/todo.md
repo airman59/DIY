@@ -1,7 +1,7 @@
 ##ToDo
 
 *   A more versatile Ajax-module.
-*   Refactor the navbar-module.
+*   <strike>Refactor the navbar-module.</strike>
 *   Routing.
 
 */Luz*

@@ -15,10 +15,14 @@ The repository is for my own version-control.
 ## ToDo
 
 - A more versatile Ajax-module.
-- Refactor the navbar-module.
+- <srike>Refactor the navbar-module.</strike>
 - Routing.
 
 ##History
+
+####2016-12-01, 13:32
+
+- Navbar-module refactored. Now I just have to add/remove a page in the hmtl-template.
 
 ####2016-12-01, 08:34
 
