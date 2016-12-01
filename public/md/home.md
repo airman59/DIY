@@ -20,4 +20,4 @@ The content is fetched from the DB as markdown and converted to html on the serv
 
 */Luz*
 
-**Site or content updated at 2016-12-01 06:04**
+**Site or content updated at 2016-12-01 15:36**

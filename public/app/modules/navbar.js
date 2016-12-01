@@ -5,7 +5,6 @@
 luz.navbar ={};
 
 (function() {
-    let helper = luz.helpers;
     let navhtml = `
         <nav>
             <ul id="navbar">

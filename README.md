@@ -39,10 +39,6 @@ The repository is for my own version-control.
 - Skipping system.js and ES6-modules. Basic approach using the ES6 that's
 implemented in todays browsers.
 
-####2016-11-17, 12:15 
-
-- Refactored the navbar into a class.
-
 ####2016-11-17, 09:45 
 
 - Moved AJAX-functions and navbar to separate modules/files.
@@ -50,10 +46,6 @@ implemented in todays browsers.
 ####2016-11-16, 16:55  
 
 - Fetching the content from the DB with AJAX.
-
-####2016-11-15, 14:55  
-
-- Set up for ES6 in the browser with System.js and Traceur.
 
 ####2016-11-12, 09:55  
 
