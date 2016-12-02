@@ -7,12 +7,16 @@ luz.router ={};
 (function() {
 
     let stateObj = {};
+    const ajax = luz.ajax;
 
     function getPage(page, addEntry) {
         if(event) {
             event.preventDefault();
         }
-        luz.ajax.makeRequest('content/' + page);
+        ajax.ajaxRequest('content/' + page, function(content) {
+            document.getElementById("content").innerHTML = content.content;
+        });
+
         if (addEntry == true) {
             setHistory(page);
         }

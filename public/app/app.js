@@ -29,4 +29,3 @@ let strs = testStr.split("/");
 console.log(strs);
 console.log(strs.length);*/
 
-

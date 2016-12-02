@@ -1,5 +1,6 @@
 ##History
 
+*   20161202, 13:13: First version of refactored ajax-module.
 *   20161201, 13:21: Navbar-module refactored.
 *   20161130, 09:26: Skipping system.js and ES6-modules.
 *   20161126, 13:45: Simple routing and highlighting in navbar.
