@@ -19,6 +19,10 @@ The repository is for my own version-control.
 
 ##History
 
+####2016-12-02, 13:16
+
+- First version of the refactored ajax-module.
+
 ####2016-12-01, 13:32
 
 - Navbar-module refactored. Now I just have to add/remove a page in the hmtl-template.
