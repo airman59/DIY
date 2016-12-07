@@ -86,3 +86,11 @@ nav ul li a.active {
     background-color: darkgrey;
 }
 
+nav .right {
+    float:right;
+}
+
+nav .hidden {
+    display: none;
+}
+

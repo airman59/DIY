@@ -14,6 +14,9 @@ luz.navbar ={};
               <li><a id="history" href="/history">History</a></li>
               <li><a id="links" href="/links">Links</a></li>
               <li><a id="about" href="/about">About</a></li>
+              <li class="right"><a id="login" href="/login">Login</a></li>
+              <li class="right"><a id="logout" class="hidden" href="/logout">Logout</a></li>
+              <li class="right"><a id="admin" class="hidden" href="/admin">Admin</a></li>                            
             </ul>
         </nav>
     `;

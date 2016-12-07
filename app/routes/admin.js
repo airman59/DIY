@@ -106,7 +106,7 @@ module.exports = function(app, express) {
 // test route to make sure everything is working
 // accessed at GET http://localhost:3000/admin
     adminRouter.get('/', function(req, res) {
-        res.json({ message: 'Hooray! Wellcome to MeanMachine api!'});
+        res.json({ message: 'Hooray! Wellcome to MeanMachine api! - The token works :-)'});
     });
 
 // more routes for our Admin-API will happen here
