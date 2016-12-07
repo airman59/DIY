@@ -19,6 +19,10 @@ The repository is for my own version-control.
 
 ##History
 
+####2016-12-07, 15:25
+
+- Login with JWT added.
+
 ####2016-12-02, 13:16
 
 - First version of the refactored ajax-module.

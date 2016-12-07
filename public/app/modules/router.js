@@ -68,9 +68,7 @@ luz.router ={};
 
     function setGetPage(addEntry) {
         let route = window.location.pathname.substr(1);
-        console.log(route);
         routeParts = route.split("/");
-        console.log(routeParts);
         if (window.location.pathname === "/") {
             var page = "home";
             var id = "#home";
