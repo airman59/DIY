@@ -95,7 +95,6 @@ luz.ajax ={};
                     let responseJSON = JSON.parse(httpRequest.responseText);
                     //callback(responseJSON);
                     console.log(httpRequest.responseText);
-                    console.log(test);
                 } else {
                     alert('There was a problem with the request.');
                 }

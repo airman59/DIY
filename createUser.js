@@ -15,9 +15,9 @@ mongoose.connect(config.database);
 var user = new User();
 
 // set the users information (comes from request)
-user.name = "Eva";
-user.username = "eva";
-user.password = "evaselesi";
+user.name = "Luz";
+user.username = "Luz";
+user.password = "Boeing737-800";
 
 // save the user and check for errors
 user.save(function(err) {
