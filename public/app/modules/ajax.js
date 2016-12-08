@@ -8,14 +8,7 @@ luz.ajax ={};
 
     let httpRequest;
 
-    /**
-     * A function to handle the simple GET-requests.
-     *
-     * @param url: the server-route to be called.
-     * @param callback: function to handle the fetched JSON-object.
-     * @returns {boolean}
-     */
-    function ajaxGetRequest(url) {
+    function ajaxGetRequest(url, myEvent) {
         httpRequest = new XMLHttpRequest();
         if (!httpRequest) {
             alert('Giving up :( Cannot create an XMLHTTP instance');
@@ -25,11 +18,11 @@ luz.ajax ={};
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     let responseJSON = JSON.parse(httpRequest.responseText);
-                    //callback(responseJSON);
                     //console.log(responseJSON);
-                    document.getElementById("content").innerHTML = responseJSON.content;
+                    myEvent.detail.responseJSON = responseJSON;
+                    document.body.dispatchEvent(myEvent);
                 } else {
-                    alert('There was a problem with the request.');
+                    alert('There was a problem with the request in ajaxGetRequest().');
                 }
             }
         };
@@ -37,22 +30,7 @@ luz.ajax ={};
         httpRequest.send();
     }
 
-    /*function processResult(){
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            if (httpRequest.status === 200) {
-                let responseJSON = JSON.parse(httpRequest.responseText);
-                //callback(responseJSON);
-                console.log(responseJSON);
-                document.getElementById("content").innerHTML = responseJSON.content;
-            } else {
-                alert('There was a problem with the request.');
-            }
-        }
-    }*/
-
-
-    function ajaxLoginRequest(url, data) {
-        console.log("In ajaxLoginRequest");
+    function ajaxLoginRequest(url, data, myEvent) {
         httpRequest = new XMLHttpRequest();
         if (!httpRequest) {
             alert('Giving up :( Cannot create an XMLHTTP instance');
@@ -62,18 +40,18 @@ luz.ajax ={};
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     let responseJSON = JSON.parse(httpRequest.responseText);
-                    //callback(responseJSON);
-                    // todo... some real functionality here...
-                    localStorage.setItem('luztoken', responseJSON.token);
+                    /*localStorage.setItem('luztoken', responseJSON.token);
                     document.getElementById("login").classList.add('hidden');
                     document.getElementById("admin").classList.remove('hidden');
                     document.getElementById("logout").classList.remove('hidden');
                     //document.getElementById("admin").classList.add('active');
                     luz.router.getPage("admin", true);
-                    luz.admin.addAdminStart("content");
-
+                    luz.admin.addAdminStart("content");*/
+                    myEvent.detail.responseJSON = responseJSON;
+                    console.log(responseJSON);
+                    document.body.dispatchEvent(myEvent);
                 } else {
-                    alert('There was a problem with the request.');
+                    alert('There was a problem with the request in ajaxLoginRequest().');
                 }
             }
         };
@@ -82,7 +60,7 @@ luz.ajax ={};
         httpRequest.send(JSON.stringify(data));
     }
 
-    function ajaxSequreRequest(url, test) {
+    function ajaxSecureRequest(url, test) {
         console.log("In ajaxSequreRequest");
         httpRequest = new XMLHttpRequest();
         if (!httpRequest) {
@@ -96,7 +74,7 @@ luz.ajax ={};
                     //callback(responseJSON);
                     console.log(httpRequest.responseText);
                 } else {
-                    alert('There was a problem with the request.');
+                    alert('There was a problem with the request in ajaxSecureRequest.');
                 }
             }
         };
@@ -106,11 +84,8 @@ luz.ajax ={};
     }
 
 
-
-
     // Add to public API.
     luz.ajax.ajaxGetRequest = ajaxGetRequest;
     luz.ajax.ajaxLoginRequest = ajaxLoginRequest;
-    luz.ajax.ajaxSequreRequest = ajaxSequreRequest;
-    //luz.ajax.processResult = processResult;
+    luz.ajax.ajaxSecureRequest = ajaxSecureRequest;
 }());

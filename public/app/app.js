@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
     nav.addNavbar("navbar");
     nav.addNavbarListeners(router.getPage);
 
+    // Create my custom event.
+    router.createEvent();
+
     // Initial routing...
     router.setGetPage(false);
 
@@ -28,4 +31,7 @@ console.log(testStr);
 let strs = testStr.split("/");
 console.log(strs);
 console.log(strs.length);*/
+
+
+
 

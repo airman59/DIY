@@ -11,7 +11,6 @@ luz.router ={};
     const ajax = luz.ajax;
     const login = luz.login;
     const admin = luz.admin;
-    let myPageLoaded;
 
     function getPage(page, addEntry) {
         if(event) {
@@ -21,16 +20,14 @@ luz.router ={};
             login.addLoginForm("content", admin);
         } else if(page ==="logout") {
             localStorage.removeItem("luztoken");
-            ajax.ajaxGetRequest('content/home', function(content) {
-                document.getElementById("content").innerHTML = content.content;
-            });
+            ajax.ajaxGetRequest('content/home', luz.myEvent);
             addEntry = true;
             page = "home";
         } else if(page === "admin") {
-            ajax.ajaxSequreRequest("admin");
+            ajax.ajaxSecureRequest("admin");
 
         } else {
-            ajax.ajaxGetRequest('content/' + page);
+            ajax.ajaxGetRequest('content/' + page, luz.myEvent);
         }
 
         if (addEntry == true) {
@@ -84,16 +81,37 @@ luz.router ={};
         setGetPage(false);
     };
 
-    function createEvents() {
-        myPageLoaded = new Event('myPageLoaded');
-        window.addEventListener('myPageLoaded', function (e) {
-            console.log("Event triggered");
-        }, false);
+    function createEvent() {
+        luz.myEvent = new CustomEvent("ajaxFinished",
+            {
+                'detail': {
+                    responseJSON: null
+                }
+            });
+        document.body.addEventListener("ajaxFinished", showPage, false);
+    }
 
+    function showPage(e) {
+        if(e.detail.responseJSON.page) {
+            document.getElementById("content").innerHTML = e.detail.responseJSON.content;
+        } else if(e.detail.responseJSON.success) {
+            document.getElementById("content").innerHTML = e.detail.responseJSON.message;
+            localStorage.setItem('luztoken', e.detail.responseJSON.token);
+            document.getElementById("login").classList.add('hidden');
+            document.getElementById("admin").classList.remove('hidden');
+            document.getElementById("logout").classList.remove('hidden');
+            stateObj.page = "admin";
+            history.pushState(stateObj, "admin", "admin");
+            highLight("admin");
+            //document.getElementById("admin").classList.add('active');
+        } else if(!e.detail.responseJSON.success) {
+            document.getElementById("content").innerHTML = e.detail.responseJSON.message;
+        }
     }
 
 
     // Add to public API.
     luz.router.setGetPage = setGetPage;
     luz.router.getPage = getPage;
+    luz.router.createEvent = createEvent;
 }());

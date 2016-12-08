@@ -34,7 +34,7 @@ luz.login ={};
             username: loginform.username.value,
             password: loginform.password.value
         }
-        luz.ajax.ajaxLoginRequest("/admin/authenticate", data);
+        luz.ajax.ajaxLoginRequest("/admin/authenticate", data, luz.myEvent);
     }
     // Add to public API.
     luz.login.addLoginForm = addLoginForm;

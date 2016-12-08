@@ -19,6 +19,12 @@ The repository is for my own version-control.
 
 ##History
 
+####2016-12-08, 14:45
+
+- Introduced a custom event that triggers when the ajax-request is finished. That way I
+  can get a simpler structure and handle the response in my router-module instead of the
+  ajax-module. Tested online in Chrome and Safari :-)
+
 ####2016-12-07, 15:25
 
 - Login with JWT added.
