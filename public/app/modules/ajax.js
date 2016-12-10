@@ -40,13 +40,6 @@ luz.ajax ={};
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     let responseJSON = JSON.parse(httpRequest.responseText);
-                    /*localStorage.setItem('luztoken', responseJSON.token);
-                    document.getElementById("login").classList.add('hidden');
-                    document.getElementById("admin").classList.remove('hidden');
-                    document.getElementById("logout").classList.remove('hidden');
-                    //document.getElementById("admin").classList.add('active');
-                    luz.router.getPage("admin", true);
-                    luz.admin.addAdminStart("content");*/
                     myEvent.detail.responseJSON = responseJSON;
                     console.log(responseJSON);
                     document.body.dispatchEvent(myEvent);
@@ -60,7 +53,7 @@ luz.ajax ={};
         httpRequest.send(JSON.stringify(data));
     }
 
-    function ajaxSecureRequest(url, test) {
+    function ajaxSecureRequest(url) {
         console.log("In ajaxSequreRequest");
         httpRequest = new XMLHttpRequest();
         if (!httpRequest) {
@@ -71,7 +64,6 @@ luz.ajax ={};
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     let responseJSON = JSON.parse(httpRequest.responseText);
-                    //callback(responseJSON);
                     console.log(httpRequest.responseText);
                 } else {
                     alert('There was a problem with the request in ajaxSecureRequest.');

@@ -20,14 +20,14 @@ luz.router ={};
             login.addLoginForm("content", admin);
         } else if(page ==="logout") {
             localStorage.removeItem("luztoken");
-            ajax.ajaxGetRequest('content/home', luz.myEvent);
+            ajax.ajaxGetRequest('content/home', luz.getFinished);
             addEntry = true;
             page = "home";
         } else if(page === "admin") {
             ajax.ajaxSecureRequest("admin");
 
         } else {
-            ajax.ajaxGetRequest('content/' + page, luz.myEvent);
+            ajax.ajaxGetRequest('content/' + page, luz.getFinished);
         }
 
         if (addEntry == true) {
@@ -81,20 +81,35 @@ luz.router ={};
         setGetPage(false);
     };
 
-    function createEvent() {
-        luz.myEvent = new CustomEvent("ajaxFinished",
+    function createEvents() {
+        luz.getFinished = new CustomEvent("ajaxGetFinished",
             {
                 'detail': {
                     responseJSON: null
                 }
             });
-        document.body.addEventListener("ajaxFinished", showPage, false);
+        document.body.addEventListener("ajaxGetFinished", showPage, false);
+
+        luz.loginFinished = new CustomEvent("ajaxLoginFinished",
+            {
+                'detail': {
+                responseJSON: null
+                }
+            });
+        document.body.addEventListener("ajaxLoginFinished", processLoginResult, false);
+
     }
 
     function showPage(e) {
-        if(e.detail.responseJSON.page) {
+        if (e.detail.responseJSON.page) {
             document.getElementById("content").innerHTML = e.detail.responseJSON.content;
-        } else if(e.detail.responseJSON.success) {
+        } else {
+            document.getElementById("content").innerHTML = "<p>Page not found!</p>";
+        }
+    }
+
+    function processLoginResult(e) {
+        if(e.detail.responseJSON.success) {
             document.getElementById("content").innerHTML = e.detail.responseJSON.message;
             localStorage.setItem('luztoken', e.detail.responseJSON.token);
             document.getElementById("login").classList.add('hidden');
@@ -104,14 +119,13 @@ luz.router ={};
             history.pushState(stateObj, "admin", "admin");
             highLight("admin");
             //document.getElementById("admin").classList.add('active');
-        } else if(!e.detail.responseJSON.success) {
+        } else {
             document.getElementById("content").innerHTML = e.detail.responseJSON.message;
         }
     }
 
-
     // Add to public API.
     luz.router.setGetPage = setGetPage;
     luz.router.getPage = getPage;
-    luz.router.createEvent = createEvent;
+    luz.router.createEvents = createEvents;
 }());
