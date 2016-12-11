@@ -24,7 +24,8 @@ luz.router ={};
             addEntry = true;
             page = "home";
         } else if(page === "admin") {
-            ajax.ajaxSecureRequest("admin");
+            admin.addAdminStart("content");
+            ajax.ajaxSecureRequest("admin", luz.secureFinished);
 
         } else {
             ajax.ajaxGetRequest('content/' + page, luz.getFinished);
@@ -98,6 +99,14 @@ luz.router ={};
             });
         document.body.addEventListener("ajaxLoginFinished", processLoginResult, false);
 
+        luz.secureFinished = new CustomEvent("ajaxSecureFinished",
+            {
+                'detail': {
+                    responseJSON: null
+                }
+            });
+        document.body.addEventListener("ajaxSecureFinished", processSecureResult, false);
+
     }
 
     function showPage(e) {
@@ -118,9 +127,17 @@ luz.router ={};
             stateObj.page = "admin";
             history.pushState(stateObj, "admin", "admin");
             highLight("admin");
-            //document.getElementById("admin").classList.add('active');
+            admin.addAdminStart("content");
         } else {
             document.getElementById("content").innerHTML = e.detail.responseJSON.message;
+        }
+    }
+
+    function processSecureResult(e) {
+        if (e.detail.responseJSON.message) {
+            document.getElementById("admincontent").innerHTML = e.detail.responseJSON.message;
+        } else {
+            document.getElementById("admincontent").innerHTML = "<p>Page not found!</p>";
         }
     }
 

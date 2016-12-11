@@ -31,27 +31,6 @@ h3 {
     padding: 10px;
 }
 
-
-/*#navbar {
-    width: 80%;
-    margin: auto;
-    padding-bottom: 5px;
-}
-
-#navbar button {
-    width: 80px;
-    height:30px;
-    color: black;
-    background-color: lightgrey;
-}
-
-#navbar button.active {
-    width: 80px;
-    height:30px;
-    color: white;
-    background-color: darkgrey;
-}*/
-
 body {
     overflow-y: scroll; /* Add vertical scrollbar */
 }
@@ -92,5 +71,37 @@ nav .right {
 
 nav .hidden {
     display: none;
+}
+
+input[type=text], [type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: lightgrey;
+}
+
+#logindiv {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: 50px;
+    padding: 20px;
 }
 

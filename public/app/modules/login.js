@@ -7,15 +7,17 @@ luz.login ={};
 (function() {
 
     let loginForm = `
-        <form id="loginform">
-              Username:<br>
-              <input type="text" name="username" value="">
-              <br>
-              Password:<br>
-              <input type="password" name="password" value="">
-              <br><br>
-              <input id="doLogin" type="submit" value="Login">
-        </form> 
+        <div id="logindiv">
+            <form id="loginform">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" value="">
+                  <br>
+                  <label for="password">Password</label>
+                  <input type="password" name="password" value="">
+                  <br><br>
+                  <input id="doLogin" type="submit" value="Login">
+            </form> 
+        </div>
     `;
 
     function addLoginForm(element) {

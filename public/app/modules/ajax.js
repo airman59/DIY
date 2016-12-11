@@ -48,12 +48,12 @@ luz.ajax ={};
                 }
             }
         };
-        httpRequest.open('POST', url);
+        httpRequest.open('POST', url, myEvent);
         httpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         httpRequest.send(JSON.stringify(data));
     }
 
-    function ajaxSecureRequest(url) {
+    function ajaxSecureRequest(url, myEvent) {
         console.log("In ajaxSequreRequest");
         httpRequest = new XMLHttpRequest();
         if (!httpRequest) {
@@ -64,7 +64,9 @@ luz.ajax ={};
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     let responseJSON = JSON.parse(httpRequest.responseText);
+                    myEvent.detail.responseJSON = responseJSON;
                     console.log(httpRequest.responseText);
+                    document.body.dispatchEvent(myEvent);
                 } else {
                     alert('There was a problem with the request in ajaxSecureRequest.');
                 }

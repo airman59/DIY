@@ -6,8 +6,9 @@ luz.admin ={};
 
 (function() {
     let adminStartHtml = `
-        <h3>Admin</h3>
+        <h2>Admin</h2>
         <p>Wellcome to the admin startpage!</p>
+        <div id="admincontent"></div>
     `;
 
     function addAdminStart(id) {
