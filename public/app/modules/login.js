@@ -29,7 +29,7 @@ luz.login ={};
         document.getElementById("loginform").addEventListener("submit", ()=> doLogin(event), false);
     }
 
-    function doLogin(event, admin) {
+    function doLogin(event) {
         let data = {};
         event.preventDefault();
         data = {

@@ -1,8 +1,6 @@
 ##ToDo
 
 *   Comments while it's still simple enough ;-)
-*   Routing.
-*   A more versatile Ajax-module.
-*   <strike>Refactor the navbar-module.</strike>
+*   A better code structure before adding more routes/functions to the client.
 
 */Luz*

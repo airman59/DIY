@@ -1,7 +1,7 @@
 # DIY
 
 Trying to build a SPA-application using MongoDB, Express.js, Node.js and
-ES5/ES6. 
+the present status of ES5/ES6 in modern browsers. 
 A live example can be found at [kingsislet.com](http://www.kingsislet.com).
 
 The repository is for my own version-control.
@@ -12,56 +12,21 @@ The repository is for my own version-control.
 * npm (v3.10.3)
 * mongodb (v3.2.7)
 
+## License
+[MIT](https://opensource.org/licenses/MIT).
+
 ## ToDo
 
-- A more versatile Ajax-module.
-- Routing.
+- A better code structure before adding more routes/functions to the client.
 
 ##History
 
-####2016-12-08, 14:45
-
-- Introduced custom events that triggers when the ajax-request is finished. That way I
-  can get a simpler structure and handle the response in my router-module instead of the
-  ajax-module. Tested online in Chrome and Safari :-)
-
-####2016-12-07, 15:25
-
-- Login with JWT added.
-
-####2016-12-02, 13:16
-
-- First version of the refactored ajax-module.
-
-####2016-12-01, 13:32
-
-- Navbar-module refactored. Now I just have to add/remove a page in the hmtl-template.
-
-####2016-12-01, 08:34
-
-- Deleted unused directories/files.
-
-####2016-11-30, 17:15
-
-- After reading up a bit on ES5-modules and namespaces I have implemented a
-  new version of of the site. Now it's a single global object and modules in
-  separate files that adds public functions to the global.
-
-####2016-11-30, 09:42 
-
-- Skipping system.js and ES6-modules. Basic approach using the ES6 that's
-implemented in todays browsers.
-
-####2016-11-17, 09:45 
-
-- Moved AJAX-functions and navbar to separate modules/files.
-
-####2016-11-16, 16:55  
-
-- Fetching the content from the DB with AJAX.
-
-####2016-11-12, 09:55  
-
-- Initializing the repository.
+*   20161208: Introduced custom events to handle the result of the ajax-requests.
+*   20161207: Login with JWT added.
+*   20161130: Skipping system.js and ES6-modules.
+*   20161126: Simple routing and highlighting in navbar.
+*   20161117: Moved AJAX-functions and navbar to separate files/modules.
+*   20161116: Quick test fetching content from DB with AJAX.
+*   20161112: Starting project and repository.
 
 */Luz*
