@@ -1,6 +1,6 @@
 ##History
 
-*   20161208: Introduced custom events to handle the result of the ajax-requests.
+*   20161208: Introduced a custom event to handle the result of the ajax-requests.
 *   20161207: Login with JWT added.
 *   20161130: Skipping system.js and ES6-modules.
 *   20161126: Simple routing and highlighting in navbar.
