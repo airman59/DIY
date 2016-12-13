@@ -14,8 +14,7 @@ the server and the database.
 I test things in Google Chrome Version 54.0.2840.71 (64-bit), Safari Version 10.0.1 (12602.2.14.0.7)
 and node.js v6.7.0 locally. Server-version of node is v4.4.5 so for the time being I'm using my "old" ES5-server online.
 
-Take a look at the notes-page and [GitHub](https://github.com/airman59/DIY) to get the present status and visions
-for the future.
+Take a look at the notes-page and [GitHub](https://github.com/airman59/DIY) to get the present status.
 
 */Luz*
 

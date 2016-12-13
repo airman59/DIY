@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     nav.addNavbarListeners(router.getPage);
 
     // Create my custom events.
-    router.createEvents();
+    router.createAjaxEvent();
 
     // Initial routing...
     router.setGetPage(false);

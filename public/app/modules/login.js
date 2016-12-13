@@ -36,7 +36,9 @@ luz.login ={};
             username: loginform.username.value,
             password: loginform.password.value
         }
-        luz.ajax.ajaxLoginRequest("/admin/authenticate", data, luz.loginFinished);
+        luz.ajaxFinished.detail.type = 'loginRequest';
+        //luz.ajax.ajaxLoginRequest("/admin/authenticate", data, luz.loginFinished);
+        luz.ajax.ajaxLoginRequest("/admin/authenticate", data, luz.ajaxFinished);
     }
     // Add to public API.
     luz.login.addLoginForm = addLoginForm;

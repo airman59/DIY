@@ -20,15 +20,20 @@ luz.router ={};
             login.addLoginForm("content", admin);
         } else if(page ==="logout") {
             localStorage.removeItem("luztoken");
-            ajax.ajaxGetRequest('content/home', luz.getFinished);
+            luz.ajaxFinished.detail.type = 'pageRequest';
+            ajax.ajaxGetRequest('content/home', luz.ajaxFinished);
+
             addEntry = true;
             page = "home";
         } else if(page === "admin") {
             admin.addAdminStart("content");
-            ajax.ajaxSecureRequest("admin", luz.secureFinished);
+            //ajax.ajaxSecureRequest("admin", luz.secureFinished);
+            luz.ajaxFinished.detail.type = 'secureRequest';
+            ajax.ajaxSecureRequest("admin", luz.ajaxFinished);
 
         } else {
-            ajax.ajaxGetRequest('content/' + page, luz.getFinished);
+            luz.ajaxFinished.detail.type = 'pageRequest';
+            ajax.ajaxGetRequest('content/' + page, luz.ajaxFinished);
         }
 
         if (addEntry == true) {
@@ -82,67 +87,50 @@ luz.router ={};
         setGetPage(false);
     };
 
-    function createEvents() {
-        luz.getFinished = new CustomEvent("ajaxGetFinished",
+    function createAjaxEvent() {
+        luz.ajaxFinished = new CustomEvent("ajaxFinished",
             {
                 'detail': {
+                    type: null,
                     responseJSON: null
                 }
-            });
-        document.body.addEventListener("ajaxGetFinished", showPage, false);
-
-        luz.loginFinished = new CustomEvent("ajaxLoginFinished",
-            {
-                'detail': {
-                responseJSON: null
-                }
-            });
-        document.body.addEventListener("ajaxLoginFinished", processLoginResult, false);
-
-        luz.secureFinished = new CustomEvent("ajaxSecureFinished",
-            {
-                'detail': {
-                    responseJSON: null
-                }
-            });
-        document.body.addEventListener("ajaxSecureFinished", processSecureResult, false);
-
+            }
+        );
+        document.body.addEventListener("ajaxFinished", processResult, false);
     }
 
-    function showPage(e) {
-        if (e.detail.responseJSON.page) {
-            document.getElementById("content").innerHTML = e.detail.responseJSON.content;
-        } else {
-            document.getElementById("content").innerHTML = "<p>Page not found!</p>";
-        }
-    }
-
-    function processLoginResult(e) {
-        if(e.detail.responseJSON.success) {
-            document.getElementById("content").innerHTML = e.detail.responseJSON.message;
-            localStorage.setItem('luztoken', e.detail.responseJSON.token);
-            document.getElementById("login").classList.add('hidden');
-            document.getElementById("admin").classList.remove('hidden');
-            document.getElementById("logout").classList.remove('hidden');
-            stateObj.page = "admin";
-            history.pushState(stateObj, "admin", "admin");
-            highLight("admin");
-            admin.addAdminStart("content");
-        } else {
-            document.getElementById("content").innerHTML = e.detail.responseJSON.message;
-        }
-    }
-
-    function processSecureResult(e) {
-        if (e.detail.responseJSON.message) {
-            document.getElementById("admincontent").innerHTML = e.detail.responseJSON.message;
-        } else {
-            document.getElementById("admincontent").innerHTML = "<p>Page not found!</p>";
+    function processResult(e) {
+        if(e.detail.type === 'pageRequest') {
+            if (e.detail.responseJSON.page) {
+                document.getElementById("content").innerHTML = e.detail.responseJSON.content;
+            } else {
+                document.getElementById("content").innerHTML = "<p>Page not found!</p>";
+            }
+        } else if(e.detail.type === 'loginRequest') {
+            if(e.detail.responseJSON.success) {
+                document.getElementById("content").innerHTML = e.detail.responseJSON.message;
+                localStorage.setItem('luztoken', e.detail.responseJSON.token);
+                document.getElementById("login").classList.add('hidden');
+                document.getElementById("admin").classList.remove('hidden');
+                document.getElementById("logout").classList.remove('hidden');
+                stateObj.page = "admin";
+                history.pushState(stateObj, "admin", "admin");
+                highLight("admin");
+                admin.addAdminStart("content");
+            } else {
+                document.getElementById("content").innerHTML = e.detail.responseJSON.message;
+            }
+        } else if(e.detail.type === 'secureRequest') {
+            if (e.detail.responseJSON.message) {
+                document.getElementById("admincontent").innerHTML = e.detail.responseJSON.message;
+            } else {
+                document.getElementById("admincontent").innerHTML = "<p>Page not found!</p>";
+            }
         }
     }
 
     // Add to public API.
     luz.router.setGetPage = setGetPage;
     luz.router.getPage = getPage;
-    luz.router.createEvents = createEvents;
+    luz.router.createAjaxEvent = createAjaxEvent;
 }());
