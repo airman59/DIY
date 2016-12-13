@@ -12,6 +12,8 @@ The repository is for my own version-control.
 * npm (v3.10.3)
 * mongodb (v3.2.7)
 
+And a few config-files not included in the repository at this stage.
+
 ## License
 [MIT](https://opensource.org/licenses/MIT).
 
